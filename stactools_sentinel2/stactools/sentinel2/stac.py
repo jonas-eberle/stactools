@@ -229,7 +229,7 @@ def image_asset_from_href(
             SENTINEL_BANDS['B04'], SENTINEL_BANDS['B03'], SENTINEL_BANDS['B02']
         ], asset)
         set_asset_properties(asset)
-        return (f'visual-{asset_href[-7:-4]}', asset)
+        return (f'visual_{asset_href[-7:-4]}', asset)
 
     if '_AOT_' in asset_href:
         # Aerosol
@@ -238,7 +238,7 @@ def image_asset_from_href(
                              title='Aerosol optical thickness (AOT)',
                              roles=['data'])
         set_asset_properties(asset)
-        return (f'AOT-{asset_href[-7:-4]}', asset)
+        return (f'AOT_{asset_href[-7:-4]}', asset)
 
     if '_WVP_' in asset_href:
         # Water vapor
@@ -247,7 +247,7 @@ def image_asset_from_href(
                              title='Water vapour (WVP)',
                              roles=['data'])
         set_asset_properties(asset)
-        return (f'WVP-{asset_href[-7:-4]}', asset)
+        return (f'WVP_{asset_href[-7:-4]}', asset)
 
     if '_SCL_' in asset_href:
         # Classification map
@@ -256,6 +256,6 @@ def image_asset_from_href(
                              title='Scene classfication map (SCL)',
                              roles=['data'])
         set_asset_properties(asset)
-        return (f'SCL-{asset_href[-7:-4]}', asset)
+        return (f'SCL_{asset_href[-7:-4]}', asset)
 
     raise ValueError(f'Unexpected asset: {asset_href}')
